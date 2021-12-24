@@ -1,0 +1,70 @@
+<!-- <form #myform="ngForm" (ngSubmit)="register(myform)" class="form form-register">
+
+    <div *ngFor="let product of product.stockList">
+        <input>
+
+    </div>
+</form> -->
+<section class="about container">
+    <h1 class="text-center mb-5">PORTFOLIO DETAILS</h1>
+    <table class="table table-striped">
+
+        <thead>
+            <tr>
+                <th scope="col">Stock </th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Sell</th>
+
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of product.stockList; let currentElementIndex=index">
+
+
+                <td>{{product.stockName}}</td>
+                <!-- <td>{{product.stockCount}}</td> -->
+                <td>{{abhiArray[currentElementIndex]}}</td>
+                <!-- <td><input type="text" value="{{chandra[currentElementIndex]}}" #qtyInput  id="inputStock"></td>
+                     <td><button class="btn btn-warning"><a [routerLink]="['/sell']">SELL NOW</a></button></td> 
+                     <td><button  (click)="toSell(qtyInput.value)" class="btn btn-warning">SELL NOW</button></td>  -->
+                <input type="text" [(ngModel)]="chandraStock[currentElementIndex]"><br/>
+
+
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-striped">
+        <tr>
+            <th scope="col">Mutual Fund </th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Sell</th>
+        </tr>
+        <tr *ngFor="let product of product.mutualFundList;let currentElementIndex=index ">
+            <td>{{product.mutualFundName}}</td>
+            <!-- <td>{{product.mutualFundUnits}}</td> -->
+            <td>{{sandeepArray[currentElementIndex]}}</td>
+            <input type="text" [(ngModel)]="chandraMutualFund[currentElementIndex]">
+
+            <!-- <td><button class="btn btn-warning"><a [routerLink]="['/sell']">SELL NOW</a></button></td> -->
+
+        </tr>
+
+
+
+    </table>
+    <tr>
+        <p>Total Amount: {{product1.networth}}</p>
+    </tr>
+    <button (click)="displayNet()" mat-button color="primary" id="btn-id"> button</button>
+    <br>
+    <button type="submit" (click)="toSell()">Submit</button>
+
+    <!-- <div class="follow text-center ">
+        <h4>Follow Us</h4>
+        <a href="#">Facebook</a>
+        <a href="#">Youtube</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+    </div> -->
+
+</section>
