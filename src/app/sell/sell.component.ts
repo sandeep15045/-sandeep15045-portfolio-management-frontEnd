@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MemberService } from '../member.service';
 
 @Component({
   selector: 'app-sell',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SellComponent implements OnInit {
 
-  constructor() { }
+  allStocks:any
+  constructor(private memberService: MemberService, private router:Router,private route:ActivatedRoute) { }
 
-  ngOnInit(): void {
+
+  ngOnInit() {
+    this.getStocklist();
+  }
+
+  getStocklist(){
+    this.memberService.getAllStocks().subscribe(result=>{
+      this.allStocks=result;
+      console.log(this.allStocks)
+    })
   }
 
 }

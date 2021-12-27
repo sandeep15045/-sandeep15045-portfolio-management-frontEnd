@@ -1,22 +1,25 @@
-<section class="joinnow">
-  <div>
-
-    <span *ngIf="invalidLogin" class="alert alert-danger">Invalid Details!!</span>
-
-  </div>
+<section class="joinnow" >
+  
     <div class="login col-lg-4 m-auto shadow-lg">
-        <form #myForm="ngForm" (ngSubmit)="Login(myForm)">
+        <form #myForm="ngForm" (ngSubmit)="Login(myForm)" class="rounded">
             <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
+              <label for="exampleInputEmail1">User Name</label>
               <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ngModel>
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <div class="valid-tooltip">
+                Looks good!
+              </div>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
-              <input type="text" name="password"  class="form-control" id="exampleInputPassword1" ngModel>
+              <input type="password" name="password"  class="form-control" id="exampleInputPassword1" ngModel>
             </div>
-            <button type="submit" class="btn btn-primary col-lg-12">Log In</button>
+            <button type="submit" class="btn btn-dark col-lg-12">Log In</button>
+            <div class="form-group">
+              <br>
+              
+            </div>
           </form>
-
+          <p *ngIf="invalidLogin" class="alert alert-danger">Invalid Details!!</p>
     </div>
 </section>

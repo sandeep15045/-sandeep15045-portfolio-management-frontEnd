@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MemberService } from '../member.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { NavbarComponent } from '../navbar/navbar.component';
  
 
 @Component({
@@ -19,15 +20,9 @@ export class CourseComponent implements OnInit {
 
   ngOnInit() {
 this.memberService.getRequest().subscribe((data:any[])=>{
-  console.log(data);
+
   this.product=data;
   
 })
   }
-  course= [
-    {'id':1,'name':'STOCKS','description':'TOTAL STOCKS-','image':'../../assets/angular.jpg'},
-    {'id':2,'name':'MUTUAL FUNDS','description':'TOTSL MUTUAL FUNDS-','image':'../../assets/typescript.jpg'},
-    {'id':3,'name':'MUTUAL FUNDS','description':'TOTSL MUTUAL FUNDS-','image':'../../assets/typescript.jpg'},
-    
-  ]
 }

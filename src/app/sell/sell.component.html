@@ -1,1 +1,15 @@
-<p>sell works!</p>
+<table class="table  table-bordered">
+    <thead>
+        <tr class="table-warning">
+            <th>Stock Name</th>
+            <th style="width: 40%">   Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let a of allStocks">
+            <td>{{a.stockName}}</td>
+            <td>Rs {{a.stockValue}}</td>
+
+        </tr>
+    </tbody>
+</table>

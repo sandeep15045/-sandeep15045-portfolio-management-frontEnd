@@ -10,6 +10,7 @@ import { StockDetails } from '../stock-details';
 import { MutualFundList } from '../mutual-fund-details';
 
 
+declare var $: any;
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -17,6 +18,7 @@ import { MutualFundList } from '../mutual-fund-details';
   
 })
 export class AboutComponent implements OnInit {
+  
   id:number
   product:PortFolioDetails=new PortFolioDetails();
   product1:any
@@ -30,7 +32,9 @@ export class AboutComponent implements OnInit {
 
   abhiArray:[number]=[0]
   sandeepArray:[number]=[0]
-
+  isSold:boolean
+  sell:any
+  
   constructor(private memberService: MemberService, private router:Router, private route:ActivatedRoute){} 
 
 
@@ -40,6 +44,17 @@ export class AboutComponent implements OnInit {
     });
     this.getProduct(this.id);
     this.isloading=true;
+
+   $(function(){
+    $('#logout').click(function(){
+        if(confirm('Are you sure to logout')) {
+            return true;
+        }
+
+        return false;
+    });
+});
+        
   }
   getProduct(id:number){
     this.memberService.getRequestbyId(id).subscribe(result=>
@@ -97,16 +112,23 @@ export class AboutComponent implements OnInit {
         }
        
         
-        console.log(this.product2);
-        console.log(this.product);
+        // console.log(this.product2);
+        // console.log(this.product);
+        
         this.memberService.sellAsset(this.product2).subscribe(result=>{
           this.product1=result;
-          console.log(this.product2)
+          this.sell=result;
+          this.isSold=this.sell.saleStatus;
+          console.log(this.isSold)
+          // console.log(this.product1)
+          console.log(this.sell)
         })
 
        // this.router.navigate(["/course",this.id]);
       }
     
   }
+
+
 
 

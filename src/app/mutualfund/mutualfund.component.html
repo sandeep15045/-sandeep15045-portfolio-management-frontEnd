@@ -1,0 +1,17 @@
+<table class="table  table-bordered">
+    <thead>
+        <tr class="table-warning">
+            <th>Mutual Fund </th>
+            <th style="width: 40%">  Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let a of allMutual">
+            <td>{{a.mutualFundName}}</td>
+            <td class="align-center">Rs {{a.mutualFundValue}}</td>
+
+        </tr>
+    </tbody>
+</table>
+
+

@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MemberService } from './member.service';
 import { SellComponent } from './sell/sell.component';
 
+import { MutualfundComponent } from './mutualfund/mutualfund.component';
+
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 export function tokenGetter(){
@@ -26,6 +29,8 @@ export function tokenGetter(){
     JoinnowComponent,
     AboutComponent,
     SellComponent,
+    MutualfundComponent,
+    NavbarComponent
     
   
     

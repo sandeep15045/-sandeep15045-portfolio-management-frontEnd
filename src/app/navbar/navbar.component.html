@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+
+  
+  
+      <ul class="navbar-nav mr-auto">
+      
+    
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle " role="button"  data-toggle="dropdown" >
+           <strong> VIEW PORTFOLIO</strong>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <mat-spinner *ngIf="product.length === 0"> </mat-spinner>
+            <mat-card *ngFor="let p of product">
+            
+              <li>
+                <a  class="dropdown-item" (click)="gotoid(p.portFolioId)" mat-button color="primary" id="btn-id" > {{p.portFolioId}}</a>
+              </li>
+          </mat-card>
+         
+            
+          </div>
+        </li>
+      
+      </ul>
+    
+     
+        <button class="btn btn-danger my-2 my-sm-0" id="logout" (click)="Logout()">Logout</button>
+    
+    
+  </nav>

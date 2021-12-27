@@ -1,13 +1,5 @@
-.follow a
-{
-    padding: 10px;
-    color: #000000;
-    font-weight: bold;
+.about{
+    margin-top: 130px;
 }
-@media screen and (max-width:600px)
-{
-    .follow a
-    {
-        padding: 5px;
-    }
-}
+
+ 

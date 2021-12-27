@@ -31,5 +31,10 @@ export class MemberService {
     return this.httpClient.get("https://localhost:44333/api/Stock");
     
   }
+  public getAllMutual()
+  {
+    return this.httpClient.get("https://localhost:44331/api/MutualFundNAV");
+   
+  }
  
 }

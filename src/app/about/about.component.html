@@ -5,66 +5,72 @@
 
     </div>
 </form> -->
-<section class="about container">
-    <h1 class="text-center mb-5">PORTFOLIO DETAILS</h1>
-    <table class="table table-striped">
-
-        <thead>
+<section class="about">
+    <div class="container">
+        <h4 class=" mb-4  animate__animated animate__fadeInRight">Portfolio Details of ID No : {{product.portFolioId}}</h4>
+        <app-navbar></app-navbar>
+        <div *ngFor="let p of product1">
+            <span *ngIf="isSold" class="alert alert-danger">Invalid Details!!</span>
+        </div>
+    
+        <table class="table table-striped">
+    
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 25%">STOCK </th>
+                    <th scope="col" style="width: 25%">QUANTITY</th>
+                    <th scope="col" style="width: 25%">SELL</th>
+                    <th style="width: 5%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of product.stockList; let currentElementIndex=index">
+                    <td>{{product.stockName}}</td>
+                    <td>{{abhiArray[currentElementIndex]}}</td>
+                    <td><input type="text" [(ngModel)]="chandraStock[currentElementIndex]"></td>
+                    <td>   <button type="submit" onclick=" " class="btn btn-success" onclick="showSale()" (click)="toSell()">SELL </button></td> 
+                </tr>
+            </tbody>
+        </table>
+    
+        <table class="table table-striped">
             <tr>
-                <th scope="col">Stock </th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Sell</th>
-
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of product.stockList; let currentElementIndex=index">
-
-
-                <td>{{product.stockName}}</td>
-                <!-- <td>{{product.stockCount}}</td> -->
-                <td>{{abhiArray[currentElementIndex]}}</td>
-                <!-- <td><input type="text" value="{{chandra[currentElementIndex]}}" #qtyInput  id="inputStock"></td>
-                     <td><button class="btn btn-warning"><a [routerLink]="['/sell']">SELL NOW</a></button></td> 
-                     <td><button  (click)="toSell(qtyInput.value)" class="btn btn-warning">SELL NOW</button></td>  -->
-                <input type="text" [(ngModel)]="chandraStock[currentElementIndex]"><br/>
-
-
+                <th scope="col" style="width: 25%">MUTUAL FUND </th>
+                <th scope="col" style="width: 25%">QUANTITY</th>
+                <th scope="col" style="width: 25%">SELL</th>
+                <th style="width: 5%"></th>
             </tr>
-        </tbody>
-    </table>
-
-    <table class="table table-striped">
-        <tr>
-            <th scope="col">Mutual Fund </th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Sell</th>
-        </tr>
-        <tr *ngFor="let product of product.mutualFundList;let currentElementIndex=index ">
-            <td>{{product.mutualFundName}}</td>
-            <!-- <td>{{product.mutualFundUnits}}</td> -->
-            <td>{{sandeepArray[currentElementIndex]}}</td>
-            <input type="text" [(ngModel)]="chandraMutualFund[currentElementIndex]">
-
-            <!-- <td><button class="btn btn-warning"><a [routerLink]="['/sell']">SELL NOW</a></button></td> -->
-
-        </tr>
-
-
-
-    </table>
-    <tr>
-        <p>Total Amount: {{product1.networth}}</p>
-    </tr>
-    <button (click)="displayNet()" mat-button color="primary" id="btn-id"> button</button>
-    <br>
-    <button type="submit" (click)="toSell()">Submit</button>
-
-    <!-- <div class="follow text-center ">
-        <h4>Follow Us</h4>
-        <a href="#">Facebook</a>
-        <a href="#">Youtube</a>
-        <a href="#">Instagram</a>
-        <a href="#">Twitter</a>
-    </div> -->
+            <tbody>
+                <tr *ngFor="let product of product.mutualFundList;let currentElementIndex=index ">
+                    <td>{{product.mutualFundName}}</td>
+                    <td>{{sandeepArray[currentElementIndex]}}</td>
+                    <td><input type="text" [(ngModel)]="chandraMutualFund[currentElementIndex]"></td> 
+                    <td>   <button type="submit" class="btn btn-success" onclick="showSale()" (click)="toSell()">SELL </button></td>
+                </tr> 
+    
+               
+            </tbody>
+        </table>
+        <div>
+            <table class="table table-dark">
+                <tr> 
+                    <td  style="width: 25%"> <button (click)="displayNet()"  onclick="showDiv()" class="btn btn-primary" > View Networth</button> </td>   
+                    <td  style="width: 25%"><p id="demo" class="advancedSearchTextbox" style="display:none;"  >NET WORTH: Rs. {{product1.networth}}</p></td>
+                    <td  style="width: 25%"></td>
+                    <td  style="width: 5%"> <button type="submit" onclick="showSale()" class="btn btn-success" (click)="toSell()">SELL </button></td>
+                </tr>
+            </table>
+           
+        </div>
+      
+       <div>
+        <div *ngIf="isSold; else elseBlock">Sold Successfully</div>
+        <ng-template #elseBlock><p style="display: none;" id="hidden"> Coudn't sell, Mismatched Quantity</p></ng-template>
+       </div>
+        
+   
+        
+    </div>
+  
 
 </section>
